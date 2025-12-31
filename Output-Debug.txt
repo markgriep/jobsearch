@@ -1,0 +1,176 @@
+﻿'jobsearch.exe' (CoreCLR: DefaultDomain): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Private.CoreLib.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Users\markgriep\Desktop\jobsearch\jobsearch\bin\Debug\net9.0\jobsearch.dll'. Symbols loaded.
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Runtime.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'c:\program files\microsoft visual studio\2022\community\common7\ide\extensions\microsoft\web tools\projectsystem\net7.0\Microsoft.WebTools.ApiEndpointDiscovery.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Linq.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Collections.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\SDK\9.0.306\DotnetTools\dotnet-watch\9.0.306-servicing.25476.4\tools\net9.0\any\middleware\Microsoft.AspNetCore.Watch.BrowserRefresh.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Web Tools\Browser Link\Microsoft.WebTools.BrowserLink.Net.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'c:\program files\microsoft visual studio\2022\community\common7\ide\commonextensions\microsoft\hotreload\Microsoft.Extensions.DotNetDeltaApplier.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.IO.Pipes.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Console.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Threading.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Runtime.InteropServices.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Threading.Overlapped.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Security.AccessControl.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Security.Principal.Windows.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Security.Claims.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Runtime.Loader.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Collections.Concurrent.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Hosting.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.DependencyInjection.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Logging.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Diagnostics.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Configuration.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Http.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Routing.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.ComponentModel.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Features.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Users\markgriep\Desktop\jobsearch\jobsearch\bin\Debug\net9.0\MudBlazor.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Components.Endpoints.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Components.Server.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Hosting.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.HttpsPolicy.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Antiforgery.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.StaticAssets.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Components.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Diagnostics.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Configuration.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Primitives.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Hosting.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Hosting.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Configuration.EnvironmentVariables.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.FileProviders.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.FileProviders.Physical.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Configuration.FileExtensions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Options.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Logging.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Diagnostics.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Diagnostics.DiagnosticSource.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Configuration.Binder.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Configuration.Json.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Memory.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.IO.FileSystem.Watcher.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.ComponentModel.Primitives.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\Microsoft.Win32.Primitives.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Text.Json.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Text.Encoding.Extensions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Configuration.UserSecrets.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Logging.EventLog.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Logging.Configuration.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Options.ConfigurationExtensions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Logging.Console.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Logging.Debug.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Logging.EventSource.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Diagnostics.Tracing.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.DependencyInjection.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Server.Kestrel.Core.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Server.Kestrel.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Server.Kestrel.Transport.Quic.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Net.Quic.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Net.Sockets.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Net.Primitives.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\Microsoft.Win32.Registry.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Server.IIS.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Server.IISIntegration.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.FileProviders.Composite.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Text.Encodings.Web.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Runtime.Intrinsics.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Numerics.Vectors.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Http.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Mvc.ApiExplorer.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Mvc.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Mvc.Core.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Connections.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.ObjectPool.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.HostFiltering.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.HttpOverrides.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Routing.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.ObjectModel.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Components.Authorization.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Components.Web.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.JSInterop.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.DataProtection.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.DataProtection.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Cryptography.Internal.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.SignalR.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.SignalR.Core.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Caching.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.SignalR.Common.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.WebSockets.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Http.Connections.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Authorization.Policy.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Authorization.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.SignalR.Protocols.Json.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Threading.Thread.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\System.Diagnostics.EventLog.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Collections.Specialized.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.ComponentModel.TypeConverter.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.IO.Pipelines.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Threading.ThreadPool.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Reflection.Emit.Lightweight.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Reflection.Emit.ILGeneration.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Reflection.Primitives.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Http.Features.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Security.Cryptography.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.WebUtilities.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Net.Http.Headers.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.StaticFiles.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Http.Extensions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Xml.XDocument.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Private.Xml.Linq.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Private.Xml.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.IO.MemoryMappedFiles.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Runtime.Extensions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Private.Uri.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Authentication.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Collections.Immutable.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.FileProviders.Embedded.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Xml.ReaderWriter.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Http.Connections.Common.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Metadata.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Linq.Expressions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'Anonymously Hosted DynamicMethods Assembly'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Threading.Channels.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Caching.Memory.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.FileSystemGlobbing.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Diagnostics.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Net.Http.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Collections.NonGeneric.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Net.Security.dll'. 
+Microsoft.Hosting.Lifetime: Information: Now listening on: https://localhost:7044
+Microsoft.Hosting.Lifetime: Information: Now listening on: http://localhost:5025
+Exception thrown: 'System.IO.IOException' in System.Net.Security.dll
+Exception thrown: 'System.IO.IOException' in System.Private.CoreLib.dll
+Exception thrown: 'System.IO.IOException' in System.Private.CoreLib.dll
+Exception thrown: 'System.IO.IOException' in System.Net.Security.dll
+Exception thrown: 'System.IO.IOException' in System.Private.CoreLib.dll
+Microsoft.Hosting.Lifetime: Information: Application started. Press Ctrl+C to shut down.
+Microsoft.Hosting.Lifetime: Information: Hosting environment: Development
+Microsoft.Hosting.Lifetime: Information: Content root path: C:\Users\markgriep\Desktop\jobsearch\jobsearch
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Net.WebSockets.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Threading.Tasks.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Net.NameResolution.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Html.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Localization.Abstractions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Localization.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.DataProtection.Extensions.dll'. 
+Exception thrown: 'System.InvalidOperationException' in Microsoft.AspNetCore.Components.Server.dll
+Exception thrown: 'System.InvalidOperationException' in Microsoft.JSInterop.dll
+Exception thrown: 'System.InvalidOperationException' in System.Private.CoreLib.dll
+Exception thrown: 'System.InvalidOperationException' in Microsoft.AspNetCore.Components.Server.dll
+Exception thrown: 'System.InvalidOperationException' in Microsoft.JSInterop.dll
+Exception thrown: 'System.InvalidOperationException' in System.Private.CoreLib.dll
+Exception thrown: 'System.InvalidOperationException' in Microsoft.AspNetCore.Components.Server.dll
+Exception thrown: 'System.InvalidOperationException' in Microsoft.JSInterop.dll
+Exception thrown: 'System.InvalidOperationException' in System.Private.CoreLib.dll
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.IO.Compression.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\9.0.10\System.Text.RegularExpressions.dll'. 
+'jobsearch.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.AspNetCore.Components.Forms.dll'. 
+Exception thrown: 'System.IO.IOException' in System.Private.CoreLib.dll
+Exception thrown: 'System.IO.IOException' in System.Private.CoreLib.dll
+The program '[7064] jobsearch.exe' has exited with code 4294967295 (0xffffffff).

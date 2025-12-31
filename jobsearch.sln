@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jobsearch", "jobsearch.csproj", "{7EA01785-99BD-047B-5CA8-9AFDD6CD1A94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EA01785-99BD-047B-5CA8-9AFDD6CD1A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EA01785-99BD-047B-5CA8-9AFDD6CD1A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EA01785-99BD-047B-5CA8-9AFDD6CD1A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EA01785-99BD-047B-5CA8-9AFDD6CD1A94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40B7FC79-F007-41D7-8F06-0B002AD5503B}
+	EndGlobalSection
+EndGlobal

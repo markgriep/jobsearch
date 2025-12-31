@@ -1,0 +1,58 @@
+﻿@page "/tracker"
+@inject jobsearch.Data.JobSearchDbContext Db
+@using Microsoft.EntityFrameworkCore
+
+
+
+<PageTitle>Job Search Info</PageTitle>
+
+<p>Row Count: @count</p>
+
+<MudTable Items="_rows" Hover="true" Dense="true">
+    <HeaderContent>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ActivityDate)">Date</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.BusinessOrOrganization)">Business</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ActivityPerformed)">Activity</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.TypeOfWork)">Type</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.Results)">Results</MudTableSortLabel></MudTh>
+        <MudTh>Actions</MudTh>
+    </HeaderContent>
+
+    <RowTemplate>
+        <MudTd DataLabel="Date">@context.ActivityDate</MudTd>
+        <MudTd DataLabel="Business">@context.BusinessOrOrganization</MudTd>
+        <MudTd DataLabel="Activity">@context.ActivityPerformed</MudTd>
+        <MudTd DataLabel="Type">@context.TypeOfWork</MudTd>
+        <MudTd DataLabel="Results">@context.Results</MudTd>
+        <MudTd>
+            <MudButton Size="Size.Small" Variant="Variant.Text" OnClick="@(() => Edit(context))">Edit</MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+
+
+
+
+@code {
+
+    int count;
+    private List<ActivityLog> _rows = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        count = await Db.ActivityLogs.CountAsync();
+        _rows = await Db.ActivityLogs
+        .OrderByDescending(x => x.ActivityDate)
+        .ToListAsync();
+    }
+
+    private void Edit(ActivityLog row)
+    {
+        // next step: open dialog
+    }
+}
+
+
+
+
+
