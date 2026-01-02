@@ -73,10 +73,29 @@
         var result = await dialog.Result;
         if (!result.Canceled && result.Data is ActivityLog added)
         {
-            Db.ActivityLogs.Add(added);
-            await Db.SaveChangesAsync();
-            Snackbar.Add("Activity added", Severity.Success);
-            await ReloadAsync();
+            try
+            {
+                // Ensure all required fields are populated
+                if (string.IsNullOrWhiteSpace(added.ActivityDate))
+                    added.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
+                
+                Db.ActivityLogs.Add(added);
+                int changes = await Db.SaveChangesAsync();
+                
+                if (changes > 0)
+                {
+                    Snackbar.Add($"Activity added successfully", Severity.Success);
+                    await ReloadAsync();
+                }
+                else
+                {
+                    Snackbar.Add("Warning: No changes were saved", Severity.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"Error saving: {ex.Message}", Severity.Error);
+            }
         }
     }
 
@@ -88,10 +107,25 @@
         var result = await dialog.Result;
         if (!result.Canceled && result.Data is ActivityLog edited)
         {
-            Db.ActivityLogs.Update(edited);
-            await Db.SaveChangesAsync();
-            Snackbar.Add("Activity updated", Severity.Success);
-            await ReloadAsync();
+            try
+            {
+                Db.ActivityLogs.Update(edited);
+                int changes = await Db.SaveChangesAsync();
+                
+                if (changes > 0)
+                {
+                    Snackbar.Add($"Activity updated successfully", Severity.Success);
+                    await ReloadAsync();
+                }
+                else
+                {
+                    Snackbar.Add("Warning: No changes were saved", Severity.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"Error saving: {ex.Message}", Severity.Error);
+            }
         }
     }
 }
