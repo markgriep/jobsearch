@@ -2,8 +2,11 @@
 
 @inject jobsearch.Data.JobSearchDbContext Db
 @inject ISnackbar Snackbar
+@inject IDialogService DialogService
 
 @using Microsoft.EntityFrameworkCore
+@using jobsearch.Dialog
+
 
 
 
@@ -11,14 +14,14 @@
 
 <div class="d-flex align-center" style="gap:8px;">
     <p class="m-0">Row Count: @count</p>
-    <MudButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" OnClick="@Add">+</MudButton>
+    <MudButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" OnClick="@Add" />
 </div>
 
 <MudTable Items="_rows" Hover="true" Dense="true">
     <HeaderContent>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ActivityDate)">Date</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.BusinessOrOrganization)">Business</MudTableSortLabel></MudTh>
-https://localhost:7044/tracker        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ActivityPerformed)">Activity</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ActivityPerformed)">Activity</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.TypeOfWork)">Type</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.Results)">Results</MudTableSortLabel></MudTh>
         <MudTh>Actions</MudTh>
@@ -36,28 +39,60 @@ https://localhost:7044/tracker        <MudTh><MudTableSortLabel SortBy="new Func
     </RowTemplate>
 </MudTable>
 
+<style>
+    .dialog-blur-background {
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.2);
+     
+    }
+</style>
 
 @code {
-
     int count;
     private List<ActivityLog> _rows = new();
 
     protected override async Task OnInitializedAsync()
     {
+        await ReloadAsync();
+    }
+
+    private async Task ReloadAsync()
+    {
         count = await Db.ActivityLogs.CountAsync();
         _rows = await Db.ActivityLogs
-        .OrderByDescending(x => x.ActivityDate)
-        .ToListAsync();
+            .OrderByDescending(x => x.ActivityDate)
+            .ToListAsync();
+        StateHasChanged();
     }
 
-    private void Add()
+    private async Task Add()
     {
-        Snackbar.Add("adding not available yet");
+        var parameters = new DialogParameters { ["Model"] = new ActivityLog() };
+        var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true, BackgroundClass = "dialog-blur-background" };
+        var dialog = DialogService.Show<ActivityLogDialog>("Add Activity", parameters, options);
+        var result = await dialog.Result;
+        if (!result.Canceled && result.Data is ActivityLog added)
+        {
+            Db.ActivityLogs.Add(added);
+            await Db.SaveChangesAsync();
+            Snackbar.Add("Activity added", Severity.Success);
+            await ReloadAsync();
+        }
     }
 
-    private void Edit(ActivityLog row)
+    private async Task Edit(ActivityLog row)
     {
-        Snackbar.Add("editing not available yet");
+        var parameters = new DialogParameters { ["Model"] = row };
+        var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true, BackgroundClass = "dialog-blur-background" };
+        var dialog = DialogService.Show<ActivityLogDialog>("Edit Activity", parameters, options);
+        var result = await dialog.Result;
+        if (!result.Canceled && result.Data is ActivityLog edited)
+        {
+            Db.ActivityLogs.Update(edited);
+            await Db.SaveChangesAsync();
+            Snackbar.Add("Activity updated", Severity.Success);
+            await ReloadAsync();
+        }
     }
 }
 
