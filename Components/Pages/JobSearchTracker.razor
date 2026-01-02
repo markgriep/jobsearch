@@ -103,24 +103,29 @@
     {
         var parameters = new DialogParameters { ["Model"] = row };
         var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true, BackgroundClass = "dialog-blur-background" };
+
         var dialog = DialogService.Show<ActivityLogDialog>("Edit Activity", parameters, options);
-        var result = await dialog.Result;
+       
+            var result = await dialog.Result;
+
         if (!result.Canceled && result.Data is ActivityLog edited)
         {
             try
             {
-                Db.ActivityLogs.Update(edited);
-                int changes = await Db.SaveChangesAsync();
-                
-                if (changes > 0)
-                {
-                    Snackbar.Add($"Activity updated successfully", Severity.Success);
-                    await ReloadAsync();
-                }
-                else
-                {
-                    Snackbar.Add("Warning: No changes were saved", Severity.Warning);
-                }
+                // copy onto the tracked instance
+                row.ActivityDate = edited.ActivityDate;
+                row.BusinessOrOrganization = edited.BusinessOrOrganization;
+                row.ActivityPerformed = edited.ActivityPerformed;
+                row.TypeOfWork = edited.TypeOfWork;
+                row.Results = edited.Results;
+                row.ContactPerson = edited.ContactPerson;
+                row.HowPerformed = edited.HowPerformed;
+                row.Notes = edited.Notes;
+
+                await Db.SaveChangesAsync();
+
+                Snackbar.Add("Activity updated successfully", Severity.Success);
+                await ReloadAsync();
             }
             catch (Exception ex)
             {
@@ -128,6 +133,7 @@
             }
         }
     }
+
 }
 
 
