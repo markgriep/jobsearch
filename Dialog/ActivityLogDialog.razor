@@ -9,7 +9,26 @@
     <DialogContent>
         <MudGrid Spacing="3">
 
+          
+
             <!-- Row 1 -->
+            <MudItem xs="12" sm="8">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.BusinessOrOrganization"
+                              Label="Business / Organization"
+                              Required />
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.TypeOfWork"
+                              Label="Type of Work"
+                              Required />
+            </MudItem>
+
+
+
+            <!-- Row 2 -->
             <MudItem xs="12" sm="3">
                 <MudTextField Variant="Variant.Outlined"
                               @bind-Value="_edit.ActivityDate"
@@ -31,20 +50,7 @@
                               Label="How Performed" />
             </MudItem>
 
-            <!-- Row 2 -->
-            <MudItem xs="12" sm="8">
-                <MudTextField Variant="Variant.Outlined"
-                              @bind-Value="_edit.BusinessOrOrganization"
-                              Label="Business / Organization"
-                              Required />
-            </MudItem>
 
-            <MudItem xs="12" sm="4">
-                <MudTextField Variant="Variant.Outlined"
-                              @bind-Value="_edit.TypeOfWork"
-                              Label="Type of Work"
-                              Required />
-            </MudItem>
 
             <!-- Row 3 -->
             <MudItem xs="12">
