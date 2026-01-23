@@ -1,0 +1,56 @@
+﻿@using MudBlazor
+@using jobsearch.Models
+
+<MudDialog>
+    <DialogContent>
+        <MudTextField @bind-Value="_edit.ActivityDate" Label="Date (YYYY-MM-DD)" Required="true" />
+        <MudTextField @bind-Value="_edit.BusinessOrOrganization" Label="Business / Organization" Required="true" />
+        <MudTextField @bind-Value="_edit.ActivityPerformed" Label="Activity Performed" Required="true" />
+        <MudTextField @bind-Value="_edit.TypeOfWork" Label="Type of Work" Required="true" />
+        <MudTextField @bind-Value="_edit.Results" Label="Results" Required="true" />
+        <MudTextField @bind-Value="_edit.ContactPerson" Label="Contact Person" />
+        <MudTextField @bind-Value="_edit.HowPerformed" Label="How Performed" />
+        <MudTextField @bind-Value="_edit.Notes" Label="Notes" Lines="3" />
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="Cancel">Cancel</MudButton>
+        <MudButton Variant="Variant.Filled" OnClick="Save">Save</MudButton>
+    </DialogActions>
+</MudDialog>
+
+
+
+
+
+@code {
+    [CascadingParameter] public IMudDialogInstance MudDialog { get; set; } = default!;
+
+    [Parameter] public ActivityLog Model { get; set; } = new();
+
+    private ActivityLog _edit = new();
+
+    protected override void OnInitialized()
+    {
+        // work on a copy so Cancel doesn't mutate the original row
+        _edit = new ActivityLog
+        {
+            Id = Model.Id,
+            ActivityDate = Model.ActivityDate,
+            BusinessOrOrganization = Model.BusinessOrOrganization,
+            ActivityPerformed = Model.ActivityPerformed,
+            TypeOfWork = Model.TypeOfWork,
+            Results = Model.Results,
+            ContactPerson = Model.ContactPerson,
+            HowPerformed = Model.HowPerformed,
+            Notes = Model.Notes
+        };
+
+        if (string.IsNullOrWhiteSpace(_edit.ActivityDate))
+            _edit.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private void Save() => MudDialog.Close(DialogResult.Ok(_edit));
+}
