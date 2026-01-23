@@ -1,16 +1,68 @@
 ﻿@using MudBlazor
 @using jobsearch.Models
+@using Microsoft.AspNetCore.Components.Web
+@inject ISnackbar Snackbar
+
+ 
 
 <MudDialog>
     <DialogContent>
-        <MudTextField @bind-Value="_edit.ActivityDate" Label="Date (YYYY-MM-DD)" Required="true" />
-        <MudTextField @bind-Value="_edit.BusinessOrOrganization" Label="Business / Organization" Required="true" />
-        <MudTextField @bind-Value="_edit.ActivityPerformed" Label="Activity Performed" Required="true" />
-        <MudTextField @bind-Value="_edit.TypeOfWork" Label="Type of Work" Required="true" />
-        <MudTextField @bind-Value="_edit.Results" Label="Results" Required="true" />
-        <MudTextField @bind-Value="_edit.ContactPerson" Label="Contact Person" />
-        <MudTextField @bind-Value="_edit.HowPerformed" Label="How Performed" />
-        <MudTextField @bind-Value="_edit.Notes" Label="Notes" Lines="3" />
+        <MudGrid Spacing="3">
+
+            <!-- Row 1 -->
+            <MudItem xs="12" sm="3">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.ActivityDate"
+                              Label="Date"
+                              OnKeyUp="OnDateKeyDown"
+                              Required />
+            </MudItem>
+
+            <MudItem xs="12" sm="5">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.ActivityPerformed"
+                              Label="Activity Performed"
+                              Required />
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.HowPerformed"
+                              Label="How Performed" />
+            </MudItem>
+
+            <!-- Row 2 -->
+            <MudItem xs="12" sm="8">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.BusinessOrOrganization"
+                              Label="Business / Organization"
+                              Required />
+            </MudItem>
+
+            <MudItem xs="12" sm="4">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.TypeOfWork"
+                              Label="Type of Work"
+                              Required />
+            </MudItem>
+
+            <!-- Row 3 -->
+            <MudItem xs="12">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.Results"
+                              Label="Results"
+                              Required />
+            </MudItem>
+
+            <!-- Notes -->
+            <MudItem xs="12">
+                <MudTextField Variant="Variant.Outlined"
+                              @bind-Value="_edit.Notes"
+                              Label="Notes"
+                              Lines="4" />
+            </MudItem>
+
+        </MudGrid>
     </DialogContent>
 
     <DialogActions>
@@ -21,14 +73,14 @@
 
 
 
-
-
 @code {
     [CascadingParameter] public IMudDialogInstance MudDialog { get; set; } = default!;
 
     [Parameter] public ActivityLog Model { get; set; } = new();
 
     private ActivityLog _edit = new();
+
+    private string foo;
 
     protected override void OnInitialized()
     {
@@ -49,6 +101,31 @@
         if (string.IsNullOrWhiteSpace(_edit.ActivityDate))
             _edit.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
     }
+
+    private void OnDateKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "t" || e.Key == "T")
+        {
+            _edit.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
+        }
+    }
+
+
+
+
+    private bool ShouldInterceptDateKey(KeyboardEventArgs e)
+    {
+        return e.Key == "t" || e.Key == "T";
+    }
+
+
+
+
+
+
+
+
+
 
     private void Cancel() => MudDialog.Cancel();
 

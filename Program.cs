@@ -13,7 +13,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 
-var dbPath = Path.Combine(AppContext.BaseDirectory, "db", "JobSearch.Db");
+var dbPath = @"\\Mac\Desktop\jobsearch.db";
 Directory.CreateDirectory(Path.GetDirectoryName(dbPath)!);
 builder.Services.AddDbContext<JobSearchDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath};Cache=Shared"));
