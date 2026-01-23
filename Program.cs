@@ -13,8 +13,16 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 
-var dbPath = @"\\Mac\Desktop\jobsearch.db";
-Directory.CreateDirectory(Path.GetDirectoryName(dbPath)!);
+var dbPath = DatabasePathResolver.Resolve(builder.Environment.ContentRootPath);
+
+//var relativeDbPath = builder.Configuration["DatabasePath"] ?? "db/Starter-JobSearch.db";
+
+//var dbPath = Path.GetFullPath(
+//    Path.Combine(builder.Environment.ContentRootPath, relativeDbPath)
+//);
+
+
+//Directory.CreateDirectory(Path.GetDirectoryName(dbPath)!);
 builder.Services.AddDbContext<JobSearchDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath};Cache=Shared"));
 

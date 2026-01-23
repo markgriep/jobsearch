@@ -14,6 +14,7 @@
             <!-- Row 1 -->
             <MudItem xs="12" sm="8">
                 <MudTextField Variant="Variant.Outlined"
+                           
                               @bind-Value="_edit.BusinessOrOrganization"
                               Label="Business / Organization"
                               Required />
@@ -30,10 +31,11 @@
 
             <!-- Row 2 -->
             <MudItem xs="12" sm="3">
-                <MudTextField Variant="Variant.Outlined"
-                              @bind-Value="_edit.ActivityDate"
+                <MudTextField @ref="activityDateField" 
+                              Variant="Variant.Outlined"
+                              @bind-Value="Activity_Date" 
                               Label="Date"
-                              OnKeyUp="OnDateKeyDown"
+                              @onkeydown="OnDateKeyDown"
                               Required />
             </MudItem>
 
@@ -86,7 +88,9 @@
 
     private ActivityLog _edit = new();
 
-    private string foo;
+    private string Activity_Date = string.Empty;
+
+    private MudTextField<string> activityDateField = default!;
 
     protected override void OnInitialized()
     {
@@ -106,34 +110,38 @@
 
         if (string.IsNullOrWhiteSpace(_edit.ActivityDate))
             _edit.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
+
+        Activity_Date = _edit.ActivityDate;
     }
 
-    private void OnDateKeyDown(KeyboardEventArgs e)
+    private async Task OnDateKeyDown(KeyboardEventArgs e)
     {
-        if (e.Key == "t" || e.Key == "T")
+        if (e.Key.ToLower() == "t")
         {
-            _edit.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
+            Activity_Date = DateTime.Now.ToString("yyyy-MM-dd");
+            await activityDateField.SetText(Activity_Date);
+        }
+        else if (e.Key == "+" || e.Key == "=") // "=" because shift isn't always detected
+        {
+            if (DateTime.TryParse(Activity_Date, out DateTime currentDate))
+            {
+                Activity_Date = currentDate.AddDays(1).ToString("yyyy-MM-dd");
+                await activityDateField.SetText(Activity_Date);
+            }
+        }
+        else if (e.Key == "-")
+        {
+            if (DateTime.TryParse(Activity_Date, out DateTime currentDate))
+            {
+                Activity_Date = currentDate.AddDays(-1).ToString("yyyy-MM-dd");
+                await activityDateField.SetText(Activity_Date);
+            }
         }
     }
 
 
-
-
-    private bool ShouldInterceptDateKey(KeyboardEventArgs e)
-    {
-        return e.Key == "t" || e.Key == "T";
-    }
-
-
-
-
-
-
-
-
-
-
     private void Cancel() => MudDialog.Cancel();
+
 
     private void Save() => MudDialog.Close(DialogResult.Ok(_edit));
 }
