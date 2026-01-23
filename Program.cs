@@ -14,8 +14,9 @@ builder.Services.AddRazorComponents()
 
 
 var dbPath = Path.Combine(AppContext.BaseDirectory, "db", "JobSearch.Db");
+Directory.CreateDirectory(Path.GetDirectoryName(dbPath)!);
 builder.Services.AddDbContext<JobSearchDbContext>(options =>
-options.UseSqlite($"Data Source={dbPath}"));
+    options.UseSqlite($"Data Source={dbPath};Cache=Shared"));
 
 
 var app = builder.Build();

@@ -21,7 +21,8 @@ public class JobSearchDbContext : DbContext
             e.HasKey(x => x.Id);
 
             e.Property<int>(x => x.Id)
-                .HasColumnName("id");
+                .HasColumnName("id")
+                .ValueGeneratedOnAdd();
 
             e.Property<string>(x => x.ActivityDate)
                 .HasColumnName("activity_date")
