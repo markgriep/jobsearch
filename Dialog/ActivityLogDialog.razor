@@ -73,10 +73,12 @@
 
             <!-- Notes -->
             <MudItem xs="12">
-                <MudTextField Variant="Variant.Outlined"
-                              @bind-Value="_edit.Notes"
-                              Label="Notes"
-                              Lines="4" />
+                <MudExpansionPanel Text="Notes" Elevation="3">
+                    <MudTextField Variant="Variant.Outlined"
+                                  @bind-Value="_edit.Notes"
+                                  Label="Notes"
+                                  Lines="4" />
+                </MudExpansionPanel>
             </MudItem>
 
         </MudGrid>
