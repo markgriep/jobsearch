@@ -1,0 +1,40 @@
+@page "/jobanalysis"
+
+<PageTitle>Job Analysis Page</PageTitle>
+
+<div>
+    <MudTextField @ref="textField"
+                  @bind-Value="MyString"
+                  Label="String Field"
+                  @onkeydown="HandleKeyDown" />
+</div>
+
+@code {
+    private MudTextField<string> textField;
+    private string MyString = string.Empty;
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key.ToLower() == "t")
+        {
+            MyString = DateTime.Now.ToString("yyyy-MM-dd");
+            await textField.SetText(MyString);
+        }
+        else if (e.Key == "+" || e.Key == "=") // "=" because shift isn't always detected
+        {
+            if (DateTime.TryParse(MyString, out DateTime currentDate))
+            {
+                MyString = currentDate.AddDays(1).ToString("yyyy-MM-dd");
+                await textField.SetText(MyString);
+            }
+        }
+        else if (e.Key == "-")
+        {
+            if (DateTime.TryParse(MyString, out DateTime currentDate))
+            {
+                MyString = currentDate.AddDays(-1).ToString("yyyy-MM-dd");
+                await textField.SetText(MyString);
+            }
+        }
+    }
+}

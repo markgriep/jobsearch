@@ -37,6 +37,7 @@
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ActivityPerformed)">Activity</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.TypeOfWork)">Type</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.Results)">Results</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ContactPerson)">Contact</MudTableSortLabel></MudTh>
         <MudTh>Actions</MudTh>
     </HeaderContent>
 
@@ -46,6 +47,7 @@
         <MudTd DataLabel="Activity">@context.ActivityPerformed</MudTd>
         <MudTd DataLabel="Type">@context.TypeOfWork</MudTd>
         <MudTd DataLabel="Results">@context.Results</MudTd>
+        <MudTd DataLabel="Contact">@context.ContactPerson</MudTd>
         <MudTd>
             <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" AriaLabel="Edit" OnClick="@(() => Edit(context))" />
         </MudTd>
@@ -139,6 +141,7 @@
                 row.ActivityDate = edited.ActivityDate;
                 row.BusinessOrOrganization = edited.BusinessOrOrganization;
                 row.ActivityPerformed = edited.ActivityPerformed;
+                row.ContactPerson = edited.ContactPerson;
                 row.TypeOfWork = edited.TypeOfWork;
                 row.Results = edited.Results;
                 row.ContactPerson = edited.ContactPerson;
