@@ -1,12 +1,25 @@
 using MudBlazor.Services;
 using jobsearch.Components;
 using jobsearch.Data;
+using jobsearch.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add MudBlazor services
 builder.Services.AddMudServices();
+
+// Add Refit client
+builder.Services
+    .AddHttpClient("openai", client => 
+    {
+        client.BaseAddress = new Uri("https://api.openai.com");
+    });
+
+builder.Services.AddScoped<IOpenAIClient>(sp =>
+    RestService.For<IOpenAIClient>(
+        sp.GetRequiredService<IHttpClientFactory>().CreateClient("openai")));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

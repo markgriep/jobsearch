@@ -1,0 +1,118 @@
+@page "/openai"
+@using jobsearch.Interfaces
+@using MudBlazor
+@inject IOpenAIClient OpenAIClient
+@inject ISnackbar Snackbar
+
+<PageTitle>OpenAI POC</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-8">
+    <MudPaper Class="pa-6">
+        <MudText Variant="Variant.H4" GutterBottom="true">OpenAI API Proof of Concept</MudText>
+        
+        <MudTextField @bind-value="apiKey" Label="API Key" InputType="InputType.Password" Class="mb-4" Placeholder="sk-..." />
+        <MudTextField @bind-value="model" Label="Model" Class="mb-4" Placeholder="gpt-4.1-mini" />
+        <MudTextField @bind-value="input" Label="Input" Class="mb-4" Placeholder="Your prompt here..." Lines="3" />
+        
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="TestConnection" Disabled="isLoading">
+            Send Request
+        </MudButton>
+
+        @if (!string.IsNullOrEmpty(response))
+        {
+            <MudPaper Class="mt-6 pa-4" Outlined="true">
+                <MudText Variant="Variant.H6">Response:</MudText>
+                <MudText Class="mt-3">@response</MudText>
+                
+                <MudDivider Class="my-4" />
+                
+                <MudGrid>
+                    <MudItem xs="12" sm="6">
+                        <MudText Variant="Variant.Caption">Total Tokens Used:</MudText>
+                        <MudText Variant="Variant.H6">@totalTokens</MudText>
+                    </MudItem>
+                </MudGrid>
+            </MudPaper>
+        }
+
+        @if (isLoading)
+        {
+            <MudProgressLinear Indeterminate="true" Class="mt-4" />
+        }
+    </MudPaper>
+</MudContainer>
+
+@code {
+private string apiKey = string.Empty;
+private string model = string.Empty;
+private string input = string.Empty;
+private string response = string.Empty;
+private int totalTokens = 0;
+private bool isLoading = false;
+
+private async Task TestConnection()
+    {
+        if (string.IsNullOrWhiteSpace(apiKey))
+        {
+            Snackbar.Add("Please enter an API key", Severity.Warning);
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(model))
+        {
+            Snackbar.Add("Please enter a model", Severity.Warning);
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            Snackbar.Add("Please enter input", Severity.Warning);
+            return;
+        }
+
+        isLoading = true;
+        try
+        {
+            var request = new OpenAIRequest 
+            { 
+                Model = model, 
+                Input = input 
+            };
+
+            var apiResponse = await OpenAIClient.GetResponse($"Bearer {apiKey}", request);
+            
+            if (apiResponse != null && apiResponse.Output.Count > 0)
+            {
+                var messageContent = apiResponse.Output[0].Content.FirstOrDefault();
+                if (messageContent != null)
+                {
+                    response = messageContent.Text;
+                    totalTokens = apiResponse.Usage.TotalTokens;
+                    Snackbar.Add("Request successful!", Severity.Success);
+                }
+                else
+                {
+                    response = "No content in response";
+                    Snackbar.Add("No content found in response", Severity.Warning);
+                }
+            }
+            else
+            {
+                response = "No output in response";
+                Snackbar.Add("No output found in response", Severity.Warning);
+            }
+        }
+        catch (Exception ex)
+        {
+            response = $"Error: {ex.Message}\n\nDetails: {ex.InnerException?.Message}";
+            totalTokens = 0;
+            Snackbar.Add($"Connection failed: {ex.Message}", Severity.Error);
+            Console.WriteLine($"OpenAI API Error: {ex}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
+

@@ -4,6 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>c11e655c-b522-4be8-bef5-cb6bd72b02df</UserSecretsId>
   </PropertyGroup>
 
 
@@ -15,6 +16,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MudBlazor" Version="8.*" />
+    <PackageReference Include="refit" Version="9.0.2" />
     <PackageReference Include="SmartReader" Version="0.11.0" />
   </ItemGroup>
 
