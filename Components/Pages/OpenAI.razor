@@ -68,6 +68,8 @@ private void ShowApiKey()
         return;
     }
 
+    apiKey = OpenAiSettings.ApiKey;
+
     var masked = OpenAiSettings.ApiKey.Length <= 8
         ? new string('*', OpenAiSettings.ApiKey.Length)
         : $"{OpenAiSettings.ApiKey[..8]}***{OpenAiSettings.ApiKey[^8..]}";
