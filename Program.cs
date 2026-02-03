@@ -2,8 +2,10 @@ using MudBlazor.Services;
 using jobsearch.Components;
 using jobsearch.Data;
 using jobsearch.Interfaces;
+using jobsearch.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Refit;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +41,11 @@ var dbPath = DatabasePathResolver.Resolve(builder.Environment.ContentRootPath);
 builder.Services.AddDbContext<JobSearchDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath};Cache=Shared"));
 
+
+var openAiApiKey = builder.Configuration["OpenAI:ApiKey"]
+    ?? throw new InvalidOperationException("Missing OpenAI:ApiKey secret.");
+
+builder.Services.AddSingleton(new OpenAiSettings { ApiKey = openAiApiKey });
 
 var app = builder.Build();
 
