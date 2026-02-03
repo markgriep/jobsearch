@@ -1,8 +1,10 @@
 @page "/openai"
 @using jobsearch.Interfaces
+@using jobsearch.Configuration
 @using MudBlazor
 @inject IOpenAIClient OpenAIClient
 @inject ISnackbar Snackbar
+@inject OpenAiSettings OpenAiSettings
 
 <PageTitle>OpenAI POC</PageTitle>
 
@@ -18,6 +20,9 @@
         
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="TestConnection" Disabled="isLoading">
             Send Request
+        </MudButton>
+        <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Class="ml-2" OnClick="ShowApiKey">
+            Show API Key
         </MudButton>
 
         @if (!string.IsNullOrEmpty(response))
@@ -54,6 +59,23 @@ private string   input = "Write one short sentence about a rainy day.";
 private string   response = string.Empty;
 private int      totalTokens = 0;
 private bool     isLoading = false;
+
+private void ShowApiKey()
+{
+    if (string.IsNullOrWhiteSpace(OpenAiSettings.ApiKey))
+    {
+        Snackbar.Add("API key is not configured", Severity.Warning);
+        return;
+    }
+
+    apiKey = OpenAiSettings.ApiKey;
+
+    var masked = OpenAiSettings.ApiKey.Length <= 8
+        ? new string('*', OpenAiSettings.ApiKey.Length)
+        : $"{OpenAiSettings.ApiKey[..8]}***{OpenAiSettings.ApiKey[^8..]}";
+
+    Snackbar.Add($"Configured API Key: {masked}", Severity.Info);
+}
 
 private async Task TestConnection()
     {
