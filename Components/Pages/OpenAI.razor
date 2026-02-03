@@ -12,6 +12,8 @@
         
         <MudTextField @bind-value="apiKey" Label="API Key" InputType="InputType.Password" Class="mb-4" Placeholder="sk-..." />
         <MudTextField @bind-value="model" Label="Model" Class="mb-4" Placeholder="gpt-4.1-mini" />
+        <MudTextField @bind-Value="temperature" Label="Temperature" InputType="InputType.Number" Class="mb-4" Placeholder="0.8"
+                      HelperText="0 = deterministic, higher = more creative (max 2.0)" Immediate="true" />
         <MudTextField @bind-value="input" Label="Input" Class="mb-4" Placeholder="Your prompt here..." Lines="3" />
         
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="TestConnection" Disabled="isLoading">
@@ -43,12 +45,15 @@
 </MudContainer>
 
 @code {
-private string apiKey = string.Empty;
-private string model = "gpt-4.1-mini";
-private string input = "Respond with a positive phrase.";
-private string response = string.Empty;
-private int totalTokens = 0;
-private bool isLoading = false;
+private string   apiKey = string.Empty;
+private string   model = "gpt-4.1-mini";
+private double   temperature = 0.8d;            // Controls randomness: 0 = deterministic/repeatable, higher = more creative/variable.
+                                                // Use 0 for scoring/logic, ~0.5–0.7 for normal text, 1.0+ for maximum creativity.
+
+private string   input = "Write one short sentence about a rainy day.";
+private string   response = string.Empty;
+private int      totalTokens = 0;
+private bool     isLoading = false;
 
 private async Task TestConnection()
     {
@@ -76,7 +81,8 @@ private async Task TestConnection()
             var request = new OpenAIRequest 
             { 
                 Model = model, 
-                Input = input 
+                Input = input,
+                Temperature = Math.Clamp(temperature, 0d, 2d)
             };
 
             var apiResponse = await OpenAIClient.GetResponse($"Bearer {apiKey}", request);

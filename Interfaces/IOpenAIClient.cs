@@ -15,6 +15,8 @@ namespace jobsearch.Interfaces
     {
         public required string Model { get; set; }
         public required string Input { get; set; }
+        [JsonPropertyName("temperature")]
+        public double Temperature { get; set; }
     }
 
     public class OpenAIResponse
