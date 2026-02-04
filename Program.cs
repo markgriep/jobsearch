@@ -6,6 +6,7 @@ using jobsearch.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Refit;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add MudBlazor services
@@ -54,6 +55,11 @@ builder.Services.AddSingleton(new OpenAiSettings
     ApiKey = openAiApiKey,
     Temperature = openAiTemperature
 });
+
+var openAiApiKey = builder.Configuration["OpenAI:ApiKey"]
+    ?? throw new InvalidOperationException("Missing OpenAI:ApiKey secret.");
+
+builder.Services.AddSingleton(new OpenAiSettings { ApiKey = openAiApiKey });
 
 var app = builder.Build();
 
