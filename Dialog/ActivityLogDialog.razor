@@ -71,6 +71,21 @@
                               Required />
             </MudItem>
 
+            <!-- DES Flags -->
+            <MudItem xs="12" sm="6">
+                <MudNumericField @bind-Value="_edit.ShouldBeOnDes"
+                                 Variant="Variant.Outlined"
+                                 Label="Should Be On DES"
+                                 Immediate="true" />
+            </MudItem>
+
+            <MudItem xs="12" sm="6">
+                <MudNumericField @bind-Value="_edit.IsOnDes"
+                                 Variant="Variant.Outlined"
+                                 Label="Is Entered On DES"
+                                 Immediate="true" />
+            </MudItem>
+
             <!-- Notes -->
             <MudItem xs="12">
                 <MudExpansionPanel Text="Notes" Elevation="3">
@@ -116,7 +131,9 @@
             Results = Model.Results,
             ContactPerson = Model.ContactPerson,
             HowPerformed = Model.HowPerformed,
-            Notes = Model.Notes
+            Notes = Model.Notes,
+            ShouldBeOnDes = Model.ShouldBeOnDes,
+            IsOnDes = Model.IsOnDes
         };
 
         if (string.IsNullOrWhiteSpace(_edit.ActivityDate))

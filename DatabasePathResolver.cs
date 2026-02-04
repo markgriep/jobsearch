@@ -36,10 +36,13 @@ public static class DatabasePathResolver
         if (File.Exists(externalDb))
             return externalDb;
 
+        
 
-
-        return Path.GetFullPath(
+        var x = Path.GetFullPath(
             Path.Combine(contentRootPath, "db", "Starter-JobSearch.db")
         );
+
+        return x;
+
     }
 }

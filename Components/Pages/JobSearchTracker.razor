@@ -38,6 +38,8 @@
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.TypeOfWork)">Type</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.Results)">Results</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ContactPerson)">Contact</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ShouldBeOnDes)">Should Be On DES</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.IsOnDes)">Is Entered On DES</MudTableSortLabel></MudTh>
         <MudTh>Actions</MudTh>
     </HeaderContent>
 
@@ -48,6 +50,8 @@
         <MudTd DataLabel="Type">@context.TypeOfWork</MudTd>
         <MudTd DataLabel="Results">@context.Results</MudTd>
         <MudTd DataLabel="Contact">@context.ContactPerson</MudTd>
+        <MudTd DataLabel="Should Be On DES">@context.ShouldBeOnDes</MudTd>
+        <MudTd DataLabel="Is Entered On DES">@context.IsOnDes</MudTd>
         <MudTd>
             <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" AriaLabel="Edit" OnClick="@(() => Edit(context))" />
         </MudTd>
@@ -147,6 +151,8 @@
                 row.ContactPerson = edited.ContactPerson;
                 row.HowPerformed = edited.HowPerformed;
                 row.Notes = edited.Notes;
+                row.ShouldBeOnDes = edited.ShouldBeOnDes;
+                row.IsOnDes = edited.IsOnDes;
 
                 await Db.SaveChangesAsync();
 
