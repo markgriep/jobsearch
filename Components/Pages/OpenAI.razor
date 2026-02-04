@@ -78,25 +78,6 @@ private void ShowApiKey()
 
 
 
-    // private void ShowApiKey()
-    // {
-    //     if (string.IsNullOrWhiteSpace(OpenAiSettings.ApiKey))
-    //     {
-    //         Snackbar.Add("API key is not configured", Severity.Warning);
-    //         return;
-    //     }
-
-    //     apiKey = OpenAiSettings.ApiKey;
-
-    //     var masked = OpenAiSettings.ApiKey.Length <= 8
-    //         ? new string('*', OpenAiSettings.ApiKey.Length)
-    //         : $"{OpenAiSettings.ApiKey[..8]}***{OpenAiSettings.ApiKey[^8..]}";
-
-    //     Snackbar.Add($"Configured API Key: {masked}", Severity.Info);
-    // }
-
-
-
 
 protected override void OnInitialized()
 {
