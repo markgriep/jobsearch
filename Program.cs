@@ -56,8 +56,8 @@ builder.Services.AddSingleton(new OpenAiSettings
     Temperature = openAiTemperature
 });
 
-var openAiApiKey = builder.Configuration["OpenAI:ApiKey"]
-    ?? throw new InvalidOperationException("Missing OpenAI:ApiKey secret.");
+//var openAiApiKey = builder.Configuration["OpenAI:ApiKey"]
+//    ?? throw new InvalidOperationException("Missing OpenAI:ApiKey secret.");
 
 builder.Services.AddSingleton(new OpenAiSettings { ApiKey = openAiApiKey });
 
