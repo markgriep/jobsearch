@@ -4,6 +4,7 @@ using jobsearch.Data;
 using jobsearch.Interfaces;
 using jobsearch.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Refit;
 
 
@@ -42,25 +43,20 @@ builder.Services.AddDbContext<JobSearchDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath};Cache=Shared"));
 
 
-var openAiApiKey = builder.Configuration["OpenAI:ApiKey"];
-if (string.IsNullOrWhiteSpace(openAiApiKey))
+var openAiSettings = new OpenAiSettings
 {
-    throw new InvalidOperationException("Missing OpenAI:ApiKey secret.");
-}
+    ApiKey = builder.Configuration["OpenAI:ApiKey"]?.Trim() ?? string.Empty,
+    Temperature = builder.Configuration.GetValue<double?>("OpenAI:Temperature") ?? 0.8d
+};
 
-var openAiTemperature = builder.Configuration.GetValue<double?>("OpenAI:Temperature") ?? 0.8d;
-
-builder.Services.AddSingleton(new OpenAiSettings
-{
-    ApiKey = openAiApiKey,
-    Temperature = openAiTemperature
-});
-
-
-
-builder.Services.AddSingleton(new OpenAiSettings { ApiKey = openAiApiKey });
+builder.Services.AddSingleton(openAiSettings);
 
 var app = builder.Build();
+
+if (string.IsNullOrWhiteSpace(openAiSettings.ApiKey))
+{
+    app.Logger.LogWarning("OpenAI:ApiKey is not configured. The OpenAI page will require entering a key manually.");
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
