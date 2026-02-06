@@ -89,6 +89,8 @@
         builder.OpenComponent<MudIcon>(0);
         builder.AddAttribute(1, "Icon", value ? Icons.Material.Outlined.CheckCircle : Icons.Material.Rounded.Remove);
         builder.AddAttribute(2, "Color", value ? Color.Success : Color.Error);
+        builder.AddAttribute(3, "Size", Size.Small); 
+        // builder.AddAttribute(3, "Style", "font-size:12px");   // Sample of another way to control.
         builder.CloseComponent();
     };
 
@@ -99,6 +101,7 @@
             builder.OpenComponent<MudIcon>(0);
             builder.AddAttribute(1, "Icon", Icons.Material.Outlined.ThumbUp);
             builder.AddAttribute(2, "Color", Color.Success);
+            builder.AddAttribute(3, "Size", Size.Small); 
             builder.CloseComponent();
         }
         : builder => { };
