@@ -50,8 +50,16 @@
         <MudTd DataLabel="Type">@context.TypeOfWork</MudTd>
         <MudTd DataLabel="Results">@context.Results</MudTd>
         <MudTd DataLabel="Contact">@context.ContactPerson</MudTd>
-        <MudTd DataLabel="Should Be On DES">@context.ShouldBeOnDes</MudTd>
-        <MudTd DataLabel="Is Entered On DES">@context.IsOnDes</MudTd>
+        <MudTd DataLabel="Should Be On DES">
+            <MudCheckBox Disabled="true"
+                         T="bool"
+                         Checked="@(context.ShouldBeOnDes != 0)" />
+        </MudTd>
+        <MudTd DataLabel="Is Entered On DES">
+            <MudCheckBox Disabled="true"
+                         T="bool"
+                         Checked="@(context.IsOnDes != 0)" />
+        </MudTd>
         <MudTd>
             <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" AriaLabel="Edit" OnClick="@(() => Edit(context))" />
         </MudTd>

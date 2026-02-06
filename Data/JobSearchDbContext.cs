@@ -60,12 +60,7 @@ public class JobSearchDbContext : DbContext
             e.Property<int>(x => x.IsOnDes)
                 .HasColumnName("is_on_des")
                 .HasDefaultValue(0);
-
-            //e.Property<int>(x => x.ShouldBeOnDes)
-            //    .HasColumnName("ShouldBeOnDes");
-
-            //e.Property<int>(x => x.IsEnteredOnDes)
-            //    .HasColumnName("IsEnteredOnDes");
+          
         });
     }
 }

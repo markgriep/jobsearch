@@ -1,4 +1,6 @@
-﻿namespace jobsearch.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace jobsearch.Models
 {
     public class ActivityLog
     {
@@ -25,5 +27,19 @@
         public int ShouldBeOnDes { get; set; }
 
         public int IsOnDes { get; set; }
+
+        [NotMapped]
+        public bool ShouldBeOnDesChecked
+        {
+            get => ShouldBeOnDes == 1;
+            set => ShouldBeOnDes = value ? 1 : 0;
+        }
+
+        [NotMapped]
+        public bool IsOnDesChecked
+        {
+            get => IsOnDes == 1;
+            set => IsOnDes = value ? 1 : 0;
+        }
     }
 }
