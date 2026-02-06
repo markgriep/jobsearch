@@ -1,12 +1,12 @@
-﻿namespace jobsearch.Models
+﻿using System;
+
+namespace jobsearch.Models
 {
     public class ActivityLog
     {
         public int Id { get; set; }
 
-
-        // Stored as TEXT: "YYYY-MM-DD"
-        public string ActivityDate { get; set; } = string.Empty;
+        public DateTime ActivityDate { get; set; } = DateTime.Today;
 
         public string BusinessOrOrganization { get; set; } = string.Empty;
 
@@ -22,8 +22,8 @@
 
         public string? Notes { get; set; }
 
-        public int ShouldBeOnDes { get; set; }
+        public bool ShouldBeOnDes { get; set; }
 
-        public int IsOnDes { get; set; }
+        public bool IsOnDes { get; set; }
     }
 }
