@@ -1,4 +1,5 @@
-﻿using jobsearch.Models;
+﻿using System;
+using jobsearch.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace jobsearch.Data;
@@ -24,8 +25,9 @@ public class JobSearchDbContext : DbContext
                 .HasColumnName("id")
                 .ValueGeneratedOnAdd();
 
-            e.Property<string>(x => x.ActivityDate)
+            e.Property<DateTime>(x => x.ActivityDate)
                 .HasColumnName("activity_date")
+                .HasColumnType("datetime2")
                 .IsRequired();
 
             e.Property<string>(x => x.BusinessOrOrganization)
@@ -53,13 +55,13 @@ public class JobSearchDbContext : DbContext
             e.Property<string?>(x => x.Notes)
                 .HasColumnName("notes");
 
-            e.Property<int>(x => x.ShouldBeOnDes)
+            e.Property<bool>(x => x.ShouldBeOnDes)
                 .HasColumnName("should_be_on_des")
-                .HasDefaultValue(0);
+                .HasDefaultValue(false);
 
-            e.Property<int>(x => x.IsOnDes)
+            e.Property<bool>(x => x.IsOnDes)
                 .HasColumnName("is_on_des")
-                .HasDefaultValue(0);
+                .HasDefaultValue(false);
 
             //e.Property<int>(x => x.ShouldBeOnDes)
             //    .HasColumnName("ShouldBeOnDes");

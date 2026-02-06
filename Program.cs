@@ -29,18 +29,33 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 
-var dbPath = DatabasePathResolver.Resolve(builder.Environment.ContentRootPath);
+//var dbPath = DatabasePathResolver.Resolve(builder.Environment.ContentRootPath);
 
-//var relativeDbPath = builder.Configuration["DatabasePath"] ?? "db/Starter-JobSearch.db";
+////var relativeDbPath = builder.Configuration["DatabasePath"] ?? "db/Starter-JobSearch.db";
 
-//var dbPath = Path.GetFullPath(
-//    Path.Combine(builder.Environment.ContentRootPath, relativeDbPath)
-//);
+////var dbPath = Path.GetFullPath(
+////    Path.Combine(builder.Environment.ContentRootPath, relativeDbPath)
+////);
 
 
-//Directory.CreateDirectory(Path.GetDirectoryName(dbPath)!);
+////Directory.CreateDirectory(Path.GetDirectoryName(dbPath)!);
+//builder.Services.AddDbContext<JobSearchDbContext>(options =>
+//    options.UseSqlite($"Data Source={dbPath};Cache=Shared"));
+
+
+var connectionString =
+    builder.Configuration.GetConnectionString("JobSearch");
+
+if (string.IsNullOrWhiteSpace(connectionString))
+{
+    throw new InvalidOperationException("Connection string 'JobSearch' is not configured.");
+}
+
 builder.Services.AddDbContext<JobSearchDbContext>(options =>
-    options.UseSqlite($"Data Source={dbPath};Cache=Shared"));
+    options.UseSqlServer(connectionString));
+
+
+
 
 
 var openAiSettings = new OpenAiSettings

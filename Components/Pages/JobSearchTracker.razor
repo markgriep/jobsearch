@@ -38,20 +38,24 @@
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.TypeOfWork)">Type</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.Results)">Results</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ContactPerson)">Contact</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ShouldBeOnDes)">Should Be On DES</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.IsOnDes)">Is Entered On DES</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.ShouldBeOnDes)">Include?</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<ActivityLog, object>(x => x.IsOnDes)">On?</MudTableSortLabel></MudTh>
         <MudTh>Actions</MudTh>
     </HeaderContent>
 
     <RowTemplate>
-        <MudTd DataLabel="Date">@context.ActivityDate</MudTd>
+        <MudTd DataLabel="Date">@context.ActivityDate.ToString("yyyy-MM-dd")</MudTd>
         <MudTd DataLabel="Business">@context.BusinessOrOrganization</MudTd>
         <MudTd DataLabel="Activity">@context.ActivityPerformed</MudTd>
         <MudTd DataLabel="Type">@context.TypeOfWork</MudTd>
         <MudTd DataLabel="Results">@context.Results</MudTd>
         <MudTd DataLabel="Contact">@context.ContactPerson</MudTd>
-        <MudTd DataLabel="Should Be On DES">@context.ShouldBeOnDes</MudTd>
-        <MudTd DataLabel="Is Entered On DES">@context.IsOnDes</MudTd>
+        <MudTd DataLabel="Should Be On DES">
+            @RenderShouldBeOnDes(context.ShouldBeOnDes)
+        </MudTd>
+        <MudTd DataLabel="Is Entered On DES">
+            @RenderIsDes(context.IsOnDes)
+        </MudTd>
         <MudTd>
             <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" AriaLabel="Edit" OnClick="@(() => Edit(context))" />
         </MudTd>
@@ -78,6 +82,29 @@
         await ReloadAsync();
     }
 
+
+    // Code for Should be ON DES,  Green- yes, Red - no
+    private RenderFragment RenderShouldBeOnDes(bool value) => builder =>
+    {
+        builder.OpenComponent<MudIcon>(0);
+        builder.AddAttribute(1, "Icon", value ? Icons.Material.Outlined.CheckCircle : Icons.Material.Rounded.Remove);
+        builder.AddAttribute(2, "Color", value ? Color.Success : Color.Error);
+        builder.CloseComponent();
+    };
+
+
+    private RenderFragment RenderIsDes(bool value) => value
+        ? builder =>
+        {
+            builder.OpenComponent<MudIcon>(0);
+            builder.AddAttribute(1, "Icon", Icons.Material.Outlined.ThumbUp);
+            builder.AddAttribute(2, "Color", Color.Success);
+            builder.CloseComponent();
+        }
+        : builder => { };
+
+
+
     private async Task ReloadAsync()
     {
         count = await Db.ActivityLogs.CountAsync();
@@ -98,8 +125,10 @@
             try
             {
                 // Ensure all required fields are populated
-                if (string.IsNullOrWhiteSpace(added.ActivityDate))
-                    added.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
+                if (added.ActivityDate == default)
+                    added.ActivityDate = DateTime.Today;
+
+                added.ActivityDate = added.ActivityDate.Date;
                 
                 Db.ActivityLogs.Add(added);
                 int changes = await Db.SaveChangesAsync();

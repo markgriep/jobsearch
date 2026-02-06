@@ -1,6 +1,7 @@
 ﻿@using MudBlazor
 @using jobsearch.Models
 @using Microsoft.AspNetCore.Components.Web
+@using System.Globalization
 @inject ISnackbar Snackbar
 
  
@@ -40,7 +41,8 @@
             <MudItem xs="12" sm="3">
                 <MudTextField @ref="activityDateField" 
                               Variant="Variant.Outlined"
-                              @bind-Value="Activity_Date" 
+                              InputType="InputType.Date"
+                              @bind-Value="ActivityDateText" 
                               Label="Date"
                               @onkeydown="OnDateKeyDown"
                               Required />
@@ -73,17 +75,15 @@
 
             <!-- DES Flags -->
             <MudItem xs="12" sm="6">
-                <MudNumericField @bind-Value="_edit.ShouldBeOnDes"
-                                 Variant="Variant.Outlined"
-                                 Label="Should Be On DES"
-                                 Immediate="true" />
+                <MudCheckBox T="bool"
+                              @bind-Checked="_edit.ShouldBeOnDes"
+                              Label="Should Be On DES" />
             </MudItem>
 
             <MudItem xs="12" sm="6">
-                <MudNumericField @bind-Value="_edit.IsOnDes"
-                                 Variant="Variant.Outlined"
-                                 Label="Is Entered On DES"
-                                 Immediate="true" />
+                <MudCheckBox T="bool"
+                              @bind-Checked="_edit.IsOnDes"
+                              Label="Is Entered On DES" />
             </MudItem>
 
             <!-- Notes -->
@@ -114,7 +114,8 @@
 
     private ActivityLog _edit = new();
 
-    private string Activity_Date = string.Empty;
+    private const string DateFormat = "yyyy-MM-dd";
+    private string _activityDateText = string.Empty;
 
     private MudTextField<string> activityDateField = default!;
 
@@ -136,35 +137,49 @@
             IsOnDes = Model.IsOnDes
         };
 
-        if (string.IsNullOrWhiteSpace(_edit.ActivityDate))
-            _edit.ActivityDate = DateTime.Today.ToString("yyyy-MM-dd");
+        if (_edit.ActivityDate == default)
+            _edit.ActivityDate = DateTime.Today;
 
-        Activity_Date = _edit.ActivityDate;
+        _activityDateText = _edit.ActivityDate.ToString(DateFormat, CultureInfo.InvariantCulture);
+    }
+
+    private string ActivityDateText
+    {
+        get => _activityDateText;
+        set
+        {
+            _activityDateText = value;
+
+            if (DateTime.TryParseExact(value, DateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsed))
+            {
+                _edit.ActivityDate = parsed.Date;
+            }
+        }
     }
 
     private async Task OnDateKeyDown(KeyboardEventArgs e)
     {
-        if (e.Key.ToLower() == "t")
+        if (e.Key.Equals("t", StringComparison.OrdinalIgnoreCase))
         {
-            Activity_Date = DateTime.Now.ToString("yyyy-MM-dd");
-            await activityDateField.SetText(Activity_Date);
+            SetActivityDate(DateTime.Today);
+            await activityDateField.SetText(ActivityDateText);
         }
-        else if (e.Key == "+" || e.Key == "=") // "=" because shift isn't always detected
+        else if (e.Key == "+" || e.Key == "=")
         {
-            if (DateTime.TryParse(Activity_Date, out DateTime currentDate))
-            {
-                Activity_Date = currentDate.AddDays(1).ToString("yyyy-MM-dd");
-                await activityDateField.SetText(Activity_Date);
-            }
+            SetActivityDate(_edit.ActivityDate.AddDays(1));
+            await activityDateField.SetText(ActivityDateText);
         }
         else if (e.Key == "-")
         {
-            if (DateTime.TryParse(Activity_Date, out DateTime currentDate))
-            {
-                Activity_Date = currentDate.AddDays(-1).ToString("yyyy-MM-dd");
-                await activityDateField.SetText(Activity_Date);
-            }
+            SetActivityDate(_edit.ActivityDate.AddDays(-1));
+            await activityDateField.SetText(ActivityDateText);
         }
+    }
+
+    private void SetActivityDate(DateTime date)
+    {
+        _edit.ActivityDate = date.Date;
+        _activityDateText = _edit.ActivityDate.ToString(DateFormat, CultureInfo.InvariantCulture);
     }
 
 
