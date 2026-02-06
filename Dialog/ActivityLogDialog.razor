@@ -73,17 +73,21 @@
                               Required />
             </MudItem>
 
-            <!-- DES Flags -->
+            <!-- DES Flags (display only) -->
             <MudItem xs="12" sm="6">
-                <MudCheckBox T="bool"
-                              @bind-Checked="_edit.ShouldBeOnDes"
-                              Label="Should Be On DES" />
+                <MudTextField Variant="Variant.Outlined"
+                              Label="Should Be On DES"
+                              Value="@(_edit.ShouldBeOnDes ? "Yes" : "No")"
+                              ReadOnly="true"
+                              Disabled="true" />
             </MudItem>
 
             <MudItem xs="12" sm="6">
-                <MudCheckBox T="bool"
-                              @bind-Checked="_edit.IsOnDes"
-                              Label="Is Entered On DES" />
+                <MudTextField Variant="Variant.Outlined"
+                              Label="Is Entered On DES"
+                              Value="@(_edit.IsOnDes ? "Yes" : "No")"
+                              ReadOnly="true"
+                              Disabled="true" />
             </MudItem>
 
             <!-- Notes -->
@@ -120,6 +124,11 @@
     private MudTextField<string> activityDateField = default!;
 
     protected override void OnInitialized()
+    {
+        InitializeEditModel();
+    }
+
+    private void InitializeEditModel()
     {
         // work on a copy so Cancel doesn't mutate the original row
         _edit = new ActivityLog
