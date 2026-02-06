@@ -73,21 +73,17 @@
                               Required />
             </MudItem>
 
-            <!-- DES Flags (display only) -->
+            <!-- DES Flags -->
             <MudItem xs="12" sm="6">
-                <MudTextField Variant="Variant.Outlined"
-                              Label="Should Be On DES"
-                              Value="@(_edit.ShouldBeOnDes ? "Yes" : "No")"
-                              ReadOnly="true"
-                              Disabled="true" />
+                <MudCheckBox T="bool"
+                              @bind-Value="_edit.ShouldBeOnDes"
+                              Label="Should Be On DES" />
             </MudItem>
 
             <MudItem xs="12" sm="6">
-                <MudTextField Variant="Variant.Outlined"
-                              Label="Is Entered On DES"
-                              Value="@(_edit.IsOnDes ? "Yes" : "No")"
-                              ReadOnly="true"
-                              Disabled="true" />
+                <MudCheckBox T="bool"
+                              @bind-Value="_edit.IsOnDes"
+                              Label="Is Entered On DES" />
             </MudItem>
 
             <!-- Notes -->
