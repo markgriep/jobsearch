@@ -6,10 +6,8 @@
 @inject IDialogService DialogService
 
 @using Microsoft.EntityFrameworkCore
+@using System.Globalization
 @using jobsearch.Dialog
-
-
-
 
 <PageTitle>Job Search Info</PageTitle>
 
@@ -23,8 +21,19 @@
 </div>
 
 
-<MudTable Items="_rows" Hover="true" Dense="true">
-    <HeaderContent>
+<MudTable Items="_rows"
+    Hover="true" 
+    Dense="true" 
+    GroupBy="_groupByWeek">
+
+<GroupHeaderTemplate>
+    <MudTh colspan="9" 
+        Style="background-color: var(--mud-palette-dark); color: var(--mud-palette-dark-text);">
+        @FormatWeekGroupHeader(((int Year, int Week))context.Key, context.Items.Count())
+    </MudTh>
+
+</GroupHeaderTemplate>
+<HeaderContent>
         <MudTh>
             <MudTableSortLabel 
                 SortBy="new Func<ActivityLog, object>(x => x.ActivityDate)" 
@@ -66,16 +75,36 @@
     .dialog-blur-background {
         backdrop-filter: blur(5px);
         background-color: rgba(255, 255, 255, 0.2);
-     
+    }
+
+    .mud-table .mud-table-body .mud-table-row > td:first-child {
+        width: 1px;
+        padding: 0 4px !important;
+        white-space: nowrap;
     }
 </style>
 
-
-
-
 @code {
-    int count;
     private List<ActivityLog> _rows = new();
+
+    private static string FormatWeekGroupHeader((int Year, int Week) key, int entryCount)
+    {
+        var monday = ISOWeek.ToDateTime(key.Year, key.Week, DayOfWeek.Monday);
+        var sunday = monday.AddDays(6);
+        var dateRange = monday.Month == sunday.Month
+            ? $"{monday:MMMM} {monday.Day}-{sunday.Day}"
+            : $"{monday:MMMM} {monday.Day} - {sunday:MMMM} {sunday.Day}";
+        var label = entryCount == 1 ? "entry" : "entries";
+        return $"Week {key.Week} ({dateRange})  {entryCount} {label}";
+    }
+
+    private readonly TableGroupDefinition<ActivityLog> _groupByWeek = new()
+    {
+        GroupName = "Week",
+        Selector = x => (ISOWeek.GetYear(x.ActivityDate), ISOWeek.GetWeekOfYear(x.ActivityDate)),
+        Expandable = true,
+        IsInitiallyExpanded = false
+    };
 
     protected override async Task OnInitializedAsync()
     {
@@ -83,17 +112,14 @@
     }
 
 
-    // Code for Should be ON DES,  Green- yes, Red - no
     private RenderFragment RenderShouldBeOnDes(bool value) => builder =>
     {
         builder.OpenComponent<MudIcon>(0);
         builder.AddAttribute(1, "Icon", value ? Icons.Material.Outlined.CheckCircle : Icons.Material.Rounded.Remove);
         builder.AddAttribute(2, "Color", value ? Color.Success : Color.Error);
-        builder.AddAttribute(3, "Size", Size.Small); 
-        // builder.AddAttribute(3, "Style", "font-size:12px");   // Sample of another way to control.
+        builder.AddAttribute(3, "Size", Size.Small);
         builder.CloseComponent();
     };
-
 
     private RenderFragment RenderIsDes(bool value) => value
         ? builder =>
@@ -101,7 +127,7 @@
             builder.OpenComponent<MudIcon>(0);
             builder.AddAttribute(1, "Icon", Icons.Material.Outlined.ThumbUp);
             builder.AddAttribute(2, "Color", Color.Success);
-            builder.AddAttribute(3, "Size", Size.Small); 
+            builder.AddAttribute(3, "Size", Size.Small);
             builder.CloseComponent();
         }
         : builder => { };
@@ -110,7 +136,6 @@
 
     private async Task ReloadAsync()
     {
-        count = await Db.ActivityLogs.CountAsync();
         _rows = await Db.ActivityLogs
             .OrderByDescending(x => x.ActivityDate)
             .ToListAsync();
@@ -166,21 +191,18 @@
         };
 
         var dialog = DialogService.Show<ActivityLogDialog>("Edit Activity", parameters, options);
-       
-            var result = await dialog.Result;
+        var result = await dialog.Result;
 
         if (!result.Canceled && result.Data is ActivityLog edited)
         {
             try
             {
-                // copy onto the tracked instance
                 row.ActivityDate = edited.ActivityDate;
                 row.BusinessOrOrganization = edited.BusinessOrOrganization;
                 row.ActivityPerformed = edited.ActivityPerformed;
                 row.ContactPerson = edited.ContactPerson;
                 row.TypeOfWork = edited.TypeOfWork;
                 row.Results = edited.Results;
-                row.ContactPerson = edited.ContactPerson;
                 row.HowPerformed = edited.HowPerformed;
                 row.Notes = edited.Notes;
                 row.ShouldBeOnDes = edited.ShouldBeOnDes;
@@ -197,8 +219,8 @@
             }
         }
     }
-
 }
+
 
 
 
