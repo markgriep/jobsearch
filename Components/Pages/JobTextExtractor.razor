@@ -1,0 +1,34 @@
+@page "/extractor"
+
+@inject ISnackbar Snackbar
+
+<PageTitle>Job Text Extractor</PageTitle>
+
+<MudText Typo="Typo.h4" Class="mb-4">Job Text Extractor</MudText>
+
+<MudTextField @bind-Value="_url"
+              Label="URL"
+              Variant="Variant.Outlined"
+              Class="mb-4" />
+
+<MudButton Variant="Variant.Filled"
+           Color="Color.Primary"
+           OnClick="Extract">
+    Extract
+</MudButton>
+
+<MudTextField @bind-Value="_notes"
+              Label="Extracted Text"
+              Variant="Variant.Outlined"
+              Lines="15"
+              Class="mt-4" />
+
+@code {
+    private string? _url;
+    private string? _notes;
+
+    private void Extract()
+    {
+        Snackbar.Add(_url ?? "(no URL entered)", Severity.Info);
+    }
+}
